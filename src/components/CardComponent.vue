@@ -1,11 +1,9 @@
 <template>
-  <div class="text-center">
-    <div class="inner-card">
-      <img class="img-fluid" :src="character.img" :alt="character.name" />
-      <div class="name">{{ character.name }}</div>
-      <div class="caption category">{{ character.category }}</div>
-      <div class="caption status">{{ character.status }}</div>
-    </div>
+  <div class="my-card text-center">
+    <img class="img-fluid" :src="character.img" :alt="character.name" />
+    <div class="name">{{ character.name }}</div>
+    <div class="caption category">{{ character.category }}</div>
+    <div class="caption status">{{ character.status }}</div>
   </div>
 </template>
 
@@ -41,7 +39,16 @@ export default {
   margin-bottom: 1rem;
 }
 
+.my-card {
+  background-color: $bluegray;
+  padding: 1rem;
+  height: 100%;
+}
+
 img {
-  max-width: 80%;
+  height: 250px;
+  width: 250px;
+  object-position: center;
+  object-fit: cover;
 }
 </style>

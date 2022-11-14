@@ -1,10 +1,10 @@
 <template>
-  <div class="wrapper">
-    <div class="my-container">
-      <div class="result-bar">Found {{ characters.length }} characters</div>
+  <div class="my-container">
+    <div class="result-bar">Found {{ characters.length }} characters</div>
 
-      <div class="row mt-3 row-cols-5 g-0">
-        <div class="card" v-for="(item, index) in characters" :key="index">
+    <div class="container">
+      <div class="row mt-3 row-cols-5 g-4">
+        <div v-for="(item, index) in characters" :key="index">
           <CardComponent :character="item" />
         </div>
       </div>
@@ -38,11 +38,5 @@ export default {
   line-height: 50px;
   font-weight: bold;
   padding-left: 10px;
-}
-
-.card {
-  background-color: $bluegray;
-  padding: 10px;
-  margin-bottom: 20px;
 }
 </style>
