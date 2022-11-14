@@ -1,9 +1,9 @@
 <template>
-  <div class="container">
-    <div class="wrapper">
-      <div class="result-bar">Component Barra risultati</div>
+  <div class="wrapper">
+    <div class="my-container">
+      <div class="result-bar">Found {{ characters.length }} characters</div>
 
-      <div class="row mt-3 row-cols-5">
+      <div class="row mt-3 row-cols-5 g-0">
         <div class="card" v-for="(item, index) in characters" :key="index">
           <CardComponent :character="item" />
         </div>
@@ -25,14 +25,19 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/partials/variables" as *;
 
-.wrapper {
+.my-container {
   background-color: $white;
   color: black;
-  padding: 60px 60px;
+  padding: 50px 60px;
 }
 
 .result-bar {
   background-color: $greyblack;
+  height: 50px;
+  color: $white;
+  line-height: 50px;
+  font-weight: bold;
+  padding-left: 10px;
 }
 
 .card {
