@@ -6,4 +6,5 @@ export const store = reactive({
   search: {
     category: "",
   },
+  loading: true,
 });

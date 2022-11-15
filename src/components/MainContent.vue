@@ -1,5 +1,9 @@
 <template>
-  <div class="my-container">
+  <div v-if="store.loading">
+    <i class="fa-solid fa-flask-vial"></i>
+  </div>
+
+  <div class="my-container" v-if="!store.loading">
     <ResultBar />
 
     <div class="container">

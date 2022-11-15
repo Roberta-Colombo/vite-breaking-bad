@@ -1,8 +1,9 @@
 <template>
   <div class="my-container">
     <form
-      class="d-flex justify-content-start align-items-center"
+      class="mt-4 d-flex justify-content-start align-items-center"
       @submit.prevent="searchCharacters"
+      @reset="resetSearch"
     >
       <!-- <button class="select-cat">
       Select category<i class="fa-solid fa-angle-down ms-2"></i>
@@ -29,6 +30,7 @@
 
       <br /><br />
       <input type="submit" value="Search" />
+      <input class="ms-3" type="reset" value="Cancel search" />
     </form>
   </div>
 </template>
@@ -46,6 +48,10 @@ export default {
   },
   methods: {
     searchCharacters() {
+      this.$emit("filteredChar");
+    },
+    resetSearch() {
+      store.search.category = "";
       this.$emit("filteredChar");
     },
   },

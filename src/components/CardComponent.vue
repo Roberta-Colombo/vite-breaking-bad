@@ -27,7 +27,7 @@ export default {
 }
 
 .caption {
-  color: $grey;
+  color: $logogreen;
 }
 
 .category {
