@@ -1,10 +1,13 @@
 <template>
   <div class="my-container">
-    <div class="result-bar">Found {{ characters.length }} characters</div>
+    <div class="result-bar">
+      Found {{ store.characterList.length }} characters
+    </div>
 
     <div class="container">
       <div class="row mt-3 row-cols-5 g-4">
-        <div v-for="(item, index) in characters" :key="index">
+        <!-- <div v-for="(item, index) in characters" :key="index"> -->
+        <div v-for="(item, index) in store.characterList" :key="index">
           <CardComponent :character="item" />
         </div>
       </div>
@@ -13,12 +16,17 @@
 </template>
 
 <script>
+import { store } from "../store";
 import CardComponent from "./CardComponent.vue";
 
 export default {
   name: "MainContent",
   components: { CardComponent },
-  props: ["characters"],
+  data() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 

@@ -8,7 +8,7 @@
   </section>
 
   <main>
-    <MainContent :characters="characterList" />
+    <MainContent />
   </main>
 </template>
 
@@ -17,6 +17,7 @@ import axios from "axios";
 import MainContent from "./components/MainContent.vue";
 import SearchComponent from "./components/SearchComponent.vue";
 import TitleComponent from "./components/TitleComponent.vue";
+import { store } from "./store";
 
 export default {
   components: {
@@ -26,15 +27,22 @@ export default {
   },
   data() {
     return {
-      apiURL: "https://www.breakingbadapi.com/api/characters",
-      characterList: [],
+      // apiURL: "https://www.breakingbadapi.com/api/characters",
+      // characterList: [],
+      store,
+      endPoint: "characters",
     };
   },
   methods: {
     getCharacters() {
-      axios.get(this.apiURL).then((res) => {
-        this.characterList = [...res.data];
-        console.log(this.characterList);
+      const charApiURL = store.apiURL + this.endPoint;
+      // axios.get(this.apiURL).then((res) => {
+      //   this.characterList = [...res.data];
+      //   console.log(this.characterList);
+      // });
+      let options = null;
+      axios.get(charApiURL, options).then((res) => {
+        store.characterList = [...res.data];
       });
     },
   },
