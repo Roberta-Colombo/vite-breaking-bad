@@ -4,7 +4,7 @@
   </header>
 
   <section>
-    <SearchComponent />
+    <SearchComponent @filteredChar="getCharacters" />
   </section>
 
   <main>
@@ -35,12 +35,19 @@ export default {
   },
   methods: {
     getCharacters() {
-      const charApiURL = store.apiURL + this.endPoint;
+      let options = null;
+      if (store.search.category) {
+        options = {
+          params: {
+            category: store.search.category,
+          },
+        };
+      }
       // axios.get(this.apiURL).then((res) => {
       //   this.characterList = [...res.data];
       //   console.log(this.characterList);
       // });
-      let options = null;
+      const charApiURL = store.apiURL + this.endPoint;
       axios.get(charApiURL, options).then((res) => {
         store.characterList = [...res.data];
       });
