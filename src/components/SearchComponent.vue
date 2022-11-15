@@ -1,13 +1,10 @@
 <template>
   <div class="my-container">
     <form
-      class="mt-4 d-flex justify-content-start align-items-center"
+      class="mt-4 mb-2 d-flex justify-content-start align-items-center"
       @submit.prevent="searchCharacters"
       @reset="resetSearch"
     >
-      <!-- <button class="select-cat">
-      Select category<i class="fa-solid fa-angle-down ms-2"></i>
-    </button> -->
       <label class="me-3" for="category">
         <strong>Filter by series:</strong>
       </label>
@@ -61,14 +58,20 @@ export default {
 <style lang="scss" scoped>
 @use "../assets/styles/partials/variables" as *;
 
-.select-cat {
-  margin-left: 10px;
+input,
+select {
   background-color: $white;
   color: black;
-  margin-top: 45px;
-  margin-bottom: 20px;
-  padding: 6px 9px;
+  padding: 5px 6px;
   border-radius: 5px;
-  border-style: none;
+  font-weight: 500;
+}
+
+input:hover {
+  color: $lightgreen;
+}
+
+label {
+  font-size: 1.3rem;
 }
 </style>

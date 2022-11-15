@@ -24,6 +24,7 @@ export default {
   background-color: $greyblack;
   height: 50px;
   color: $white;
+  color: white;
   line-height: 50px;
   font-weight: bold;
   padding-left: 10px;

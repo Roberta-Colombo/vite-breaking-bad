@@ -47,10 +47,11 @@ export default {
       //   this.characterList = [...res.data];
       //   console.log(this.characterList);
       // });
-      store.loading = false;
+      store.loading = true;
       const charApiURL = store.apiURL + this.endPoint;
       axios.get(charApiURL, options).then((res) => {
         store.characterList = [...res.data];
+        store.loading = false;
       });
     },
   },

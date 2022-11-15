@@ -1,6 +1,9 @@
 <template>
   <div class="my-card text-center">
-    <img class="img-fluid" :src="character.img" :alt="character.name" />
+    <div class="card-img">
+      <div class="overlay"></div>
+      <img class="img-fluid" :src="character.img" :alt="character.name" />
+    </div>
     <div class="name">{{ character.name }}</div>
     <div class="caption category">{{ character.category }}</div>
     <div class="caption status">{{ character.status }}</div>
@@ -40,7 +43,7 @@ export default {
 }
 
 .my-card {
-  background-color: $bluegray;
+  background-color: $lightgreen;
   padding: 1rem;
   height: 100%;
 }
@@ -50,5 +53,23 @@ img {
   width: 250px;
   object-position: center;
   object-fit: cover;
+}
+
+.card-img {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $yellow-trans;
+  display: none;
+}
+
+.card-img:hover .overlay {
+  display: block;
 }
 </style>

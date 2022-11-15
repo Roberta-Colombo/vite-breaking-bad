@@ -1,7 +1,5 @@
 <template>
-  <div v-if="store.loading">
-    <i class="fa-solid fa-flask-vial"></i>
-  </div>
+  <LoaderComponent />
 
   <div class="my-container" v-if="!store.loading">
     <ResultBar />
@@ -20,11 +18,12 @@
 <script>
 import { store } from "../store";
 import CardComponent from "./CardComponent.vue";
+import LoaderComponent from "./LoaderComponent.vue";
 import ResultBar from "./ResultBar.vue";
 
 export default {
   name: "MainContent",
-  components: { CardComponent, ResultBar },
+  components: { CardComponent, ResultBar, LoaderComponent },
   data() {
     return {
       store,
